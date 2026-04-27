@@ -1,0 +1,65 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f7f9fc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+    color: #14754b;
+}
+
+.outing-card {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+}
+
+.btn-outline-success,
+.btn-outline-secondary {
+    border-radius: 8px;
+}
+
+.card-title {
+    font-weight: bold;
+    color: #14754b;
+}
+
+.card-text {
+    color: #555;
+}
+
+footer {
+    text-align: center;
+    font-size: 14px;
+    padding: 2rem;
+    background-color: #f0f0f0;
+    margin-top: 4rem;
+    color: #999;
+}
+main {
+    flex: 1;
+    padding: 2rem 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+html,body{
+    height : 100%;
+}
+.member-outings-section {
+    background-color: #ffffff;
+    padding: 3rem 1rem;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.outing-card {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    border-radius: 14px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.outing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}

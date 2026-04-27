@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tableau de bord</title>
+    <!-- Lien vers Bootstrap 5 via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel = "stylesheet" th:href="@{/css/dashboard.css}">
+</head>
+<body>
+<header>
+    <!-- NAVBAR avec Bootstrap -->
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm px-4">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" th:href="@{/home}">
+                <img alt="Climbing Club" th:src="@{/images/logo.png}" style="height: 40px; margin-right: 10px;">
+                <span>Climbing Club</span>
+            </a>
+
+            <div class="collapse navbar-collapse justify-content-end">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/home}">Accueil</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/categories}">Catégories</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#upcoming-section">Sorties à venir</a>
+                    </li>
+
+                    <!-- Visible uniquement si l'utilisateur est connecté -->
+                    <li class="nav-item" th:if="${#authorization.expression('isAuthenticated()')}">
+                        <a class="nav-link" th:href="@{/dashboard}">Tableau de bord</a>
+                    </li>
+
+                    <!-- Déconnexion (authentifié) -->
+                    <li class="nav-item" th:if="${#authorization.expression('isAuthenticated()')}">
+                        <form th:action="@{/logout}" method="post" class="d-inline">
+                            <button class="btn btn-outline-danger btn-sm ms-2" type="submit">Déconnexion</button>
+                        </form>
+                    </li>
+
+                    <!-- Connexion (non-authentifié) -->
+                    <li class="nav-item" th:unless="${#authorization.expression('isAuthenticated()')}">
+                        <a class="nav-link" th:href="@{/login}">Connexion</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<main>
+    <div class="container">
+        <h1 th:text="'Bienvenue ' + ${member.firstName} + ' !'"></h1>
+
+        <h2>Vos sorties :</h2>
+        <ul class="outing-list">
+            <li th:each="outing : ${outings}">
+                <div>
+                    <span th:text="${outing.name}"></span>
+                    (<a th:href="@{/outings/{id}(id=${outing.id})}">voir</a>)
+                </div>
+                <div class="d-flex gap-3">
+                    <a th:href="@{/outings/edit/{id}(id=${outing.id})}" class="btn btn-outline-warning btn-sm">✏️ Modifier</a>
+                    <a th:href="@{/outings/delete/{id}(id=${outing.id})}"
+                       class="btn btn-outline-danger btn-sm"
+                       onclick="return confirm('Supprimer cette sortie ?');">🗑️ Supprimer</a>
+                </div>
+            </li>
+        </ul>
+
+        <a th:href="@{/outings/new}" class="btn-create">➕ Créer une nouvelle sortie</a>
+
+        <form th:action="@{/logout}" method="post" style="display:inline;">
+            <button type="submit" class="logout-btn">Se déconnecter</button>
+        </form>
+    </div>
+</main>
+<footer class="bg-light text-center py-4 mt-auto">
+    © 2025 Climbing Club. Tous droits réservés.
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+body {
+    background-color: #f9f9f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-container {
+    max-width: 400px;
+    margin: 5rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+    text-align: center;
+    color: #14754b;
+    margin-bottom: 2rem;
+}
+
+.form-label {
+    font-weight: 500;
+}
+
+.btn-primary {
+    background-color: #14754b;
+    border-color: #14754b;
+}
+
+.btn-primary:hover {
+    background-color: #0f5f3f;
+}
+
+.link {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.link a {
+    color: #14754b;
+    text-decoration: none;
+}
+
+.link a:not(.access-btn):hover {
+    color: #0a58ca;
+}
+
+.access-btn {
+    color: #14754b;
+    border-color: #14754b;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.access-btn:hover {
+    background-color: #14754b;
+    color: white;
+}

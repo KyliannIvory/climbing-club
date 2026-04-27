@@ -1,0 +1,83 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f4f7fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-container {
+    max-width: 700px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #14754b;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+input[type="url"],
+input[type="date"],
+textarea,
+select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.btn-primary {
+    background-color: #14754b;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0a58ca;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #14754b;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.back-link:hover {
+    color: #0a58ca;
+}
+
+footer {
+    text-align: center;
+    font-size: 14px;
+    padding: 2rem;
+    background-color: #f0f0f0;
+    margin-top: 4rem;
+    color: #999;
+}
+main {
+    flex: 1;
+    padding: 2rem 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+html,body{
+    height : 100%;
+}
